@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Edit Page";
+}
+<div class="text-center">
+    <h1 class="display-1">Editing To-Do</h1>
+</div>
+<div class="container py-5">
+    <form method="Post">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @foreach (var item in Model)
+        {
+            <div class="form-group">
+                <label>Title</label>
+                <input class="form-control" value="@item.Title" name="title" id="title"/>
+                <input class="form-control" value="@item.Id" type="hidden" name="id" id="id"/>
+                <span class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <input class="form-control" value="@item.Description" name="description" id="description"/>
+                <span class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Deadline Date</label>
+                <input type="date" class="form-control" value="@item.DeadlineDate" name="deadlineDate" id="deadlineDate" />
+            </div>
+            <div class="form-group">
+                <label>Deadline Time</label>
+                <input type="time" class="form-control" value="@item.DeadlineTime" name="deadlineTime" id="deadlineTime" />
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-dark">Submit</button>
+            </div>
+        }
+    </form>
+</div>
